@@ -1,0 +1,7 @@
+resources:
+  - mysql/mysql-configmap-engine.yaml
+  - mysql/mysql-configmap-db.yaml
+  - mysql/mysql-deploy.yaml
+  - app-node/app.yaml
+  - nginx/nginx-configmap-conf.yaml
+  - nginx/nginx-deploy.yaml

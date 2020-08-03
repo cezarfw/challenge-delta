@@ -1,0 +1,13 @@
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: mysql-config-db
+  namespace: hurb
+data:
+  create-config-db.sh: |-
+        echo "CREATE DATABASE IF NOT EXISTS packages" | mysql --host=localhost --user=root --password=$MYSQL_ROOT_PASSWORD
+        echo "USE packages; CREATE TABLE IF NOT EXISTS offer ( Id int(11) NOT NULL AUTO_INCREMENT, Text varchar(255) NOT NULL,
+        CreateDate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (Id)) ENGINE=InnoDB DEFAULT
+        CHARSET=latin1 AUTO_INCREMENT=1;" | mysql --host=localhost --user=root --password=$MYSQL_ROOT_PASSWORD
+        echo "GRANT ALL PRIVILEGES ON packages.* TO '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD'" | mysql --host=localhost --user=root --password=$MYSQL_ROOT_PASSWORD

@@ -7,9 +7,9 @@ if (!port) {
     port = 8888;
 }
 var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'user_packages',
-    password: 'passwords'
+    host: 'mysql',
+    user: 'desafio',
+    password: 'hurb'
 });
 
 var server = restify.createServer();
